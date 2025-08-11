@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanya Fashionista - Premium Fashion Store</title>
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; media-src 'self' https:;">
+    
+    <!-- Preload Resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Security Script -->
+    <script nonce="security-nonce-12345">
+        // Client-side security restrictions
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showSecurityNotification('Right-click disabled for security', 'warning');
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            if (!e.target.matches('input, textarea, select')) {
+                e.preventDefault();
+            }
+        });
+        
+        document.addEventListener('copy', function(e) {
+            if (!e.target.matches('input, textarea, select')) {
+                e.preventDefault();
+                showSecurityNotification('Copy action blocked for security', 'warning');
+            }
+        });
+        
+        document.addEventListener('cut', function(e) {
+            if (!e.target.matches('input, textarea, select')) {
+                e.preventDefault();
+                showSecurityNotification('Cut action blocked for security', 'warning');
+            }
+        });
+        
+        document.addEventListener('paste', function(e) {
+            if (!e.target.matches('input, textarea, select')) {
+                e.preventDefault();
+                showSecurityNotification('Paste action blocked for security', 'warning');
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'U'))) {
+                e.preventDefault();
+                showSecurityNotification('Developer tools access blocked for security', 'warning');
+            }
+        });
+        
+        function showSecurityNotification(message, type) {
+            // This function will be defined in the main script
+            if (window.showSecurityNotification) {
+                window.showSecurityNotification(message, type);
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Fancy Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+            <div class="floating-shape"></div>
+        </div>
+    </div>
+
+    <!-- Fancy Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-logo">Tanya Fashionista</div>
+        <div class="loading-spinner"></div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+        <p style="color: var(--primary-silver); margin-top: 1rem;">Loading your fashion experience...</p>
+    </div>
+
+    <!-- Fancy Enhanced Header -->
+    <header class="enhanced-header" id="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <a href="#" class="logo">Tanya Fashionista</a>
+                <div class="tagline">Premium Fashion & Lifestyle</div>
+            </div>
+            <div class="header-actions">
+                <button class="action-btn theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i> Theme
+                </button>
+                <button class="action-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i> Cart <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fancy Enhanced Navigation -->
+    <nav class="enhanced-nav">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">🏠 Home</a></li>
+                <li><a href="#shop" class="nav-link">🛍️ Shop</a></li>
+                <li><a href="#cart-section" class="nav-link">🛒 Cart</a></li>
+                <li><a href="#stats-section" class="nav-link">📊 Stats</a></li>
+                <li><a href="#contact" class="nav-link">📞 Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Fancy Hero Section -->
+    <section class="enhanced-hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Tanya Fashionista</h1>
+            <p class="hero-subtitle">Discover the latest trends in premium fashion</p>
+            <a href="#shop" class="hero-cta">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Fancy Product Section -->
+    <section class="product-section section" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="section-title">🛍️ Shop Our Collection</h3>
+                <p class="section-subtitle">Discover the latest trends in fashion</p>
+            </div>
+            <div class="row">
+                <div class="col col-12">
+                    <section class="product-list" id="product-list">
+                        <!-- Products will be dynamically added here -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fancy Cart Section -->
+    <section class="cart-section" id="cart-section" style="display: none;">
+        <div class="cart-header">
+            <h2 class="cart-title">🛒 Shopping Cart</h2>
+            <div class="cart-total">Total: KES <span id="cart-total">0</span></div>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-actions">
+            <button class="btn-clear-cart" onclick="clearCart()">Clear Cart</button>
+            <button class="btn-checkout" onclick="checkout()">Checkout</button>
+        </div>
+    </section>
+
+    <!-- Fancy Stats Section -->
+    <section class="stats-section" id="stats-section" style="display: none;">
+        <div class="stats-header">
+            <h2 class="stats-title">📊 Store Statistics</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-products">0</div>
+                <div class="stat-label">Total Products</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-sales">0</div>
+                <div class="stat-label">Total Sales</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="cart-items-count">0</div>
+                <div class="stat-label">Cart Items</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="wishlist-count">0</div>
+                <div class="stat-label">Wishlist Items</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fancy Footer -->
+    <footer class="enhanced-footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Tanya Fashionista</h3>
+                <p>Your premier destination for luxury fashion, premium sneakers, and exclusive accessories. We bring you the latest trends with unmatched quality and style.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#shop">Shop Collection</a></p>
+                <p><a href="#cart-section">Shopping Cart</a></p>
+                <p><a href="#stats-section">Store Stats</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>📱 Mobile: +254 797 004 972</p>
+                <p>💳 M-Pesa: 0797004972</p>
+                <p>📍 Location: Nairobi, Kenya</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p><a href="#"><i class="fab fa-facebook"></i> Facebook</a></p>
+                <p><a href="#"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><a href="#"><i class="fab fa-twitter"></i> Twitter</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tanya Fashionista. All rights reserved. | Premium Fashion & Lifestyle</p>
+        </div>
+    </footer>
+
+    <!-- Fancy Floating Action Button -->
+    <button class="floating-action-btn" onclick="scrollToTop()" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Security Status Bar -->
+    <div class="security-status-bar" id="security-status-bar">
+        <div class="security-status">
+            <span class="security-badge">🔒</span>
+            <span class="security-indicator">Security Active</span>
+        </div>
+    </div>
+
+    <!-- Security Test Section -->
+    <section class="security-test-section" style="display: none;">
+        <div class="container">
+            <h3>Security Features Test</h3>
+            <div class="security-test-grid">
+                <div class="security-test-card">
+                    <h4>Right-Click Protection</h4>
+                    <p>Try right-clicking anywhere on this page</p>
+                    <div class="security-status" id="right-click-status">✅ Active</div>
+                </div>
+                <div class="security-test-card">
+                    <h4>Copy Protection</h4>
+                    <p>Try copying text from this page</p>
+                    <div class="security-status" id="copy-status">✅ Active</div>
+                </div>
+                <div class="security-test-card">
+                    <h4>Developer Tools</h4>
+                    <p>Try pressing F12 or Ctrl+Shift+I</p>
+                    <div class="security-status" id="dev-tools-status">✅ Active</div>
+                </div>
+            </div>
+            <button onclick="testSecurityFeatures()" class="btn-secure">Test All Security Features</button>
+        </div>
+    </section>
+
+    <!-- Icon Test Section -->
+    <section class="icon-test-section" style="display: none;">
+        <div class="container">
+            <h3>Icon Loading Test</h3>
+            <div class="icon-test-grid">
+                <div class="icon-test-item">
+                    <h4>Font Awesome Icons</h4>
+                    <div id="faStatus">Testing...</div>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="icon-test-item">
+                    <h4>Fallback Unicode Icons</h4>
+                    <div>⭐ 💖 🛒 🏠 🛍️ 📊 📞</div>
+                </div>
+                <div class="icon-test-item">
+                    <h4>Image Loading Test</h4>
+                    <div id="imageStatus">Testing...</div>
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=100&h=100&fit=crop&crop=center" 
+                         alt="Test Image" 
+                         onload="imageLoaded(this)" 
+                         onerror="imageError(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Font Awesome Fallback -->
+    <script>
+        // Check if Font Awesome loaded properly
+        setTimeout(function() {
+            const faStatus = document.getElementById('faStatus');
+            if (faStatus) {
+                const testIcon = document.querySelector('.fas');
+                if (testIcon && getComputedStyle(testIcon, '::before').content !== 'none') {
+                    faStatus.innerHTML = '✅ Font Awesome loaded successfully';
+                    faStatus.style.color = 'var(--primary-green)';
+                } else {
+                    faStatus.innerHTML = '⚠️ Font Awesome not detected, loading fallback...';
+                    faStatus.style.color = 'var(--primary-gold)';
+                    
+                    // Load Font Awesome from alternative source
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://use.fontawesome.com/releases/v6.4.0/css/all.css';
+                    document.head.appendChild(link);
+                }
+            }
+        }, 1000);
+        
+        // Test image loading
+        function imageLoaded(img) {
+            const imageStatus = document.getElementById('imageStatus');
+            if (imageStatus) {
+                imageStatus.innerHTML = '✅ Image loaded successfully';
+                imageStatus.style.color = 'var(--primary-green)';
+            }
+        }
+        
+        function imageError(img) {
+            const imageStatus = document.getElementById('imageStatus');
+            if (imageStatus) {
+                imageStatus.innerHTML = '❌ Image failed to load';
+                imageStatus.style.color = 'var(--accent-pink)';
+            }
+        }
+    </script>
+</body>
+</html>
